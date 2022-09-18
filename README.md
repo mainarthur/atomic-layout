@@ -37,7 +37,7 @@ const Card = ({ title, imageUrl, actions }) => (
   <Composition areas={areasMobile} areasMd={areasTablet} gap={20}>
     {/* Get React components based on provided areas */}
     {({ Thumbnail, Header, Footer }) => (
-      <React.Fragment>
+      <>
         <Thumbnail>
           {/* Render anything, including another Composition */}
           <img src={imageUrl} alt={title} />
@@ -48,7 +48,7 @@ const Card = ({ title, imageUrl, actions }) => (
         <Footer padding={10} paddingMd={20}>
           {actions}
         </Footer>
-      </React.Fragment>
+      </>
     )}
   </Composition>
 )
