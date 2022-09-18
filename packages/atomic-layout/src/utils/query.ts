@@ -22,9 +22,9 @@ const createQuery = (params: ResponsiveQueryParams): string => {
  */
 export const query = memoizeWith<typeof createQuery>((params) => {
   return Object.entries(params)
-    .filter(([, value]) => value != null)
-    .reduce((acc, [key, value]) => {
-      return acc.concat(`${key}=${value.toString()}`)
+    .reduce((accumulator, [key, value]) => {
+      if(value != null) accumulator.push(`${key}=${value.toString()}`)
+      return accumulator
     }, [])
     .join()
 })(createQuery)
